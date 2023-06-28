@@ -8,8 +8,8 @@ class PlacesDetailScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    //final textTheme = Theme.of(context).textTheme;
-    //final colorScheme = Theme.of(context).colorScheme;
+    final textTheme = Theme.of(context).textTheme;
+    final colorScheme = Theme.of(context).colorScheme;
     return Scaffold(
       appBar: AppBar(
         title: Text(place.title),
@@ -22,6 +22,26 @@ class PlacesDetailScreen extends StatelessWidget {
             width: double.infinity,
             height: double.infinity,
           ),
+          Positioned(
+            bottom: 0,
+            left: 0,
+            right: 0,
+            child: Column(
+              children: [
+                const CircleAvatar(),
+                Container(
+                  alignment: Alignment.center,
+                  child: Text(
+                    place.location.address,
+                    textAlign: TextAlign.center,
+                    style: textTheme.titleLarge!.copyWith(
+                      color: colorScheme.onBackground,
+                    ),
+                  ),
+                ),
+              ],
+            ),
+          )
         ],
       ),
     );
